@@ -1,0 +1,18 @@
+# Makefile for running the QA Framework
+
+PYTHON = python3
+
+QA_TOOLBOX_DIR = ./qa_toolbox
+
+all : run_tests build_documentation
+
+run_tests :
+	@echo run_tests
+	@if [ -d $(QA_TOOLBOX_DIR) ]; then \
+		echo "Executing QA Framework Makefile"; \
+		$(MAKE) --directory=$(QA_TOOLBOX_DIR) DOC_DIR=${PWD}/docs all; \
+		echo QA Framework Makefile done; \
+	fi
+
+build_documentation :
+	@echo build_documentation
