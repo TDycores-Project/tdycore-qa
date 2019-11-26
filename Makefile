@@ -9,9 +9,11 @@ all : run_tests build_documentation
 run_tests :
 	@echo run_tests
 	@if [ -d $(QA_TOOLBOX_DIR) ]; then \
-		echo "Executing QA Framework Makefile"; \
+		echo Executing QA Framework Makefile; \
 		$(MAKE) --directory=$(QA_TOOLBOX_DIR) DOC_DIR=${PWD}/docs all; \
 		echo QA Framework Makefile done; \
+	else \
+		echo Directory $(QA_TOOLBOX_DIR) not found; \
 	fi
 
 build_documentation :
