@@ -30,7 +30,8 @@ addons:
 #    - master
 
 script: 
-  - ./.travis/test-qa_framework.sh
+#  - ./.travis/test-qa_framework.sh
+   - ./.travis/tdycore.sh
 
 #after_success:
 #  - bash <(curl -s https://codecov.io/bash)
