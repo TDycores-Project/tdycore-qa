@@ -9,7 +9,11 @@ git clone https://github.com/TDycores-Project/qa-toolbox.git
 git clone https://gitlab.com/petsc/petsc petsc
 cd petsc
 git checkout v3.11.3
-./configure --CFLAGS='-O3' --CXXFLAGS='-O3' --FFLAGS='-O3' --with-debugging=no --download-mpich=yes --download-hdf5=yes --download-fblaslapack=yes --download-metis=yes --download-parmetis=yes
+echo "start configuring"
+./configure
+echo "end configuring"
+#--CFLAGS='-O3' --CXXFLAGS='-O3' --FFLAGS='-O3' --with-debugging=no --download-mpich=yes --download-hdf5=yes --download-fblaslapack=yes --download-metis=yes --download-parmetis=yes
+
 
 export PETSC_DIR=$PWD
 export PETSC_ARCH=arch-osx-dbg ##how know this??
