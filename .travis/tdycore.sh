@@ -10,6 +10,7 @@ git clone https://gitlab.com/petsc/petsc petsc
 cd petsc
 git checkout v3.11.3
 echo "start configuring"
+ls -a
 ./configure
 echo "end configuring"
 #--CFLAGS='-O3' --CXXFLAGS='-O3' --FFLAGS='-O3' --with-debugging=no --download-mpich=yes --download-hdf5=yes --download-fblaslapack=yes --download-metis=yes --download-parmetis=yes
