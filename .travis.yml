@@ -5,7 +5,7 @@ before_script:
 
 sudo: required
 
-dist: bionic # 18.04.x
+dist: trusty # 18.04.x
 
 compiler:
   - gcc
