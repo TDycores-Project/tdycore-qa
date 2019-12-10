@@ -19,7 +19,6 @@ echo "start configuring"
 ./configure PETSC_ARCH=petsc-arch \
 --with-cc=gcc \
 --with-cxx=g++ \
---with-fc=gfortran \
 --CFLAGS='-g -O0' --CXXFLAGS='-g -O0' --FFLAGS='-g -O0 -Wno-unused-function' \
 --with-clanguage=c \
 --with-debug=$DEBUG  \
