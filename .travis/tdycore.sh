@@ -15,7 +15,7 @@ cd petsc
 git checkout ${PETSC_GIT_HASH}
 
 export PETSC_DIR=$PWD
-
+echo "start configuring"
 ./configure PETSC_ARCH=petsc-arch \
 --with-cc=gcc \
 --with-cxx=g++ \
@@ -29,8 +29,8 @@ export PETSC_DIR=$PWD
 --download-parmetis \
 --download-fblaslapack \
 --download-mpich=http://www.mpich.org/static/downloads/3.2/mpich-3.2.tar.gz
-echo "start configuring"
-./configure
+
+
 echo "end configuring"
 #--CFLAGS='-O3' --CXXFLAGS='-O3' --FFLAGS='-O3' --with-debugging=no --download-mpich=yes --download-hdf5=yes --download-fblaslapack=yes --download-metis=yes --download-parmetis=yes
 
