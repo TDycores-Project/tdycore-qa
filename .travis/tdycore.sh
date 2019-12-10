@@ -10,7 +10,7 @@ sudo apt-get install -y cmake gcc gfortran g++
 #petsc
 git clone https://gitlab.com/petsc/petsc petsc
 
-PETSC_GIT_HASH=v3.11.1
+PETSC_GIT_HASH=v3.11.3
 DEBUG=1
 
 cd petsc
@@ -62,5 +62,6 @@ pflotran = $PWD/pflotran/src/pflotran/pflotran' >$PWD/qa-toolbox/simulators.sim
 ##map tdycore test within config_files.txt
 echo '../TDycore/steady/ateady.cfg'>$PWD/qa-toolbox/config_files.txt
 
+ls -a
 cd tdycore-qa
 make all
