@@ -4,6 +4,8 @@
 #git clone https://github.com/TDycores-Project/tdycore-qa.git
 git clone https://github.com/TDycores-Project/qa-toolbox.git
 
+sudo apt-get install -y cmake gcc gfortran g++
+
 #install and make pflotran
 #petsc
 git clone https://gitlab.com/petsc/petsc petsc
@@ -19,6 +21,7 @@ echo "start configuring"
 ./configure PETSC_ARCH=petsc-arch \
 --with-cc=gcc \
 --with-cxx=g++ \
+--with-fc=gfortran \
 --CFLAGS='-g -O0' --CXXFLAGS='-g -O0' --FFLAGS='-g -O0 -Wno-unused-function' \
 --with-clanguage=c \
 --with-debug=$DEBUG  \
