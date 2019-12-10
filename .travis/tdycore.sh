@@ -39,6 +39,7 @@ echo "end configuring"
 #export PETSC_ARCH=arch-osx-dbg ##how know this??
 
 #cd $PETSC_DIR
+ls -a
 make all
 
 cd ..
