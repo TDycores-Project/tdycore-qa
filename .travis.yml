@@ -19,6 +19,8 @@ before_install:
 addons:
   apt:
     update: true
+    packages:
+      -cmake
     
 # blocklist
 #branches:
