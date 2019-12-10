@@ -1,7 +1,7 @@
 #!/bin/sh
 
-git clone git@github.com:TDycores-Project/qa-toolbox.git
-make all QA_TOOLBOX_DIR=./qa-toolbox
+#git clone git@github.com:TDycores-Project/qa-toolbox.git
+make all QA_TOOLBOX_DIR=../../qa-toolbox
 
 EXIT_CODE=$?
 if [ $EXIT_CODE -ne 0 ]; then
