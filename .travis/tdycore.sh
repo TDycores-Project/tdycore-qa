@@ -56,7 +56,8 @@ git clone https://github.com/TDycores-Project/TDycore.git
 
 
 #insert simulator paths into simulators.sim
-echo 'tdycore = $PWD/TDycore
+echo '[simulators]
+tdycore = $PWD/TDycore
 pflotran = $PWD/pflotran/src/pflotran/pflotran' >$PWD/qa-toolbox/simulators.sim
 
 ##map tdycore test within config_files.txt
