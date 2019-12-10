@@ -7,19 +7,38 @@ git clone https://github.com/TDycores-Project/qa-toolbox.git
 #install and make pflotran
 #petsc
 git clone https://gitlab.com/petsc/petsc petsc
+
+PETSC_GIT_HASH=v3.11.1
+DEBUG=1
+
 cd petsc
-git checkout v3.11.3
+git checkout ${PETSC_GIT_HASH}
+
+export PETSC_DIR=$PWD
+
+./configure PETSC_ARCH=petsc-arch \
+--with-cc=gcc \
+--with-cxx=g++ \
+--with-fc=gfortran \
+--CFLAGS='-g -O0' --CXXFLAGS='-g -O0' --FFLAGS='-g -O0 -Wno-unused-function' \
+--with-clanguage=c \
+--with-debug=$DEBUG  \
+--with-shared-libraries=0 \
+--download-hdf5 \
+--download-metis \
+--download-parmetis \
+--download-fblaslapack \
+--download-mpich=http://www.mpich.org/static/downloads/3.2/mpich-3.2.tar.gz
 echo "start configuring"
-ls -a
 ./configure
 echo "end configuring"
 #--CFLAGS='-O3' --CXXFLAGS='-O3' --FFLAGS='-O3' --with-debugging=no --download-mpich=yes --download-hdf5=yes --download-fblaslapack=yes --download-metis=yes --download-parmetis=yes
 
 
-export PETSC_DIR=$PWD
-export PETSC_ARCH=arch-osx-dbg ##how know this??
+#export PETSC_DIR=$PWD
+#export PETSC_ARCH=arch-osx-dbg ##how know this??
 
-cd $PETSC_DIR
+#cd $PETSC_DIR
 make all
 
 cd ..
