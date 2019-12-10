@@ -19,6 +19,9 @@ before_install:
 addons:
   apt:
     update: true
+
+addons:
+  apt:
     packages:
       -cmake
     
