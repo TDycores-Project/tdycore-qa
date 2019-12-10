@@ -64,4 +64,6 @@ echo '../TDycore/steady/ateady.cfg'>$PWD/qa-toolbox/config_files.txt
 
 ls -a
 cd tdycore-qa
+git checkout rosie/learning-travis
+
 make all
