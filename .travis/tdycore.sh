@@ -57,6 +57,7 @@ git clone https://github.com/TDycores-Project/TDycore.git
 
 #insert simulator paths into simulators.sim
 echo '[simulators]
+python = /usr/bin/python3
 tdycore = $PWD/TDycore
 pflotran = $PWD/pflotran/src/pflotran/pflotran' >$PWD/qa-toolbox/simulators.sim
 
@@ -64,6 +65,7 @@ pflotran = $PWD/pflotran/src/pflotran/pflotran' >$PWD/qa-toolbox/simulators.sim
 echo '../TDycore/steady/ateady.cfg'>$PWD/qa-toolbox/config_files.txt
 
 ls -a
+python3 version
 cd tdycore-qa
 git checkout rosie/learning-travis
 ls -a
