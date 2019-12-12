@@ -53,7 +53,18 @@ cd ../../..
 
 #instal tdycore
 git clone https://github.com/TDycores-Project/TDycore.git
+cd TDycore
+git checkout glenn/example-block
+make
+cd demo/steadyblock
+make
+ls -a
 
+echo "tdycore folder"
+
+#clone my tdycore test
+git clone https://github.com/leorosie/TDycore-test.git
+#private repository
 
 #insert simulator paths into simulators.sim
 echo '[simulators]
@@ -62,7 +73,7 @@ tdycore = $PWD/TDycore
 pflotran = $PWD/pflotran/src/pflotran/pflotran' >$PWD/qa-toolbox/simulators.sim
 
 ##map tdycore test within config_files.txt
-echo '../TDycore/steady/ateady.cfg'>$PWD/qa-toolbox/config_files.txt
+echo '../TDycore-test/2d_block/2d_block.cfg'>$PWD/qa-toolbox/config_files.txt
 
 ls -a
 python3 version
