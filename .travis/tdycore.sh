@@ -62,6 +62,8 @@ ls -a
 
 echo "tdycore folder"
 
+cd ../..
+
 #clone my tdycore test
 git clone https://github.com/leorosie/TDycore-test.git
 #private repository
@@ -69,14 +71,13 @@ git clone https://github.com/leorosie/TDycore-test.git
 #insert simulator paths into simulators.sim
 echo '[simulators]
 python = /usr/bin/python3
-tdycore = $PWD/TDycore
+tdycore = $PWD/TDycore/demo/steadyblock
 pflotran = $PWD/pflotran/src/pflotran/pflotran' >$PWD/qa-toolbox/simulators.sim
 
 ##map tdycore test within config_files.txt
 echo '../TDycore-test/2d_block/2d_block.cfg'>$PWD/qa-toolbox/config_files.txt
 
-ls -a
-python3 version
+
 cd tdycore-qa
 git checkout rosie/learning-travis
 ls -a
