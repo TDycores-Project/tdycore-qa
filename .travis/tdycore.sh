@@ -62,7 +62,7 @@ ls -a
 
 echo "tdycore folder"
 
-cd ../..
+cd ../../..
 
 #clone my tdycore test
 git clone https://github.com/leorosie/TDycore-test.git
