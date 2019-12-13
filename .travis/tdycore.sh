@@ -18,6 +18,8 @@ git checkout ${PETSC_GIT_HASH}
 
 export PETSC_DIR=$PWD
 echo "start configuring"
+pyenv shell 3.7.1
+
 ./configure PETSC_ARCH=petsc-arch \
 --with-cc=gcc \
 --with-cxx=g++ \
