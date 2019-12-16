@@ -79,7 +79,7 @@ echo "reg folder"
 #insert simulator paths into simulators.sim
 echo '[simulators]
 python = /usr/bin/python3
-tdycore = $PWD/TDycore/demo/steadyblock
+tdycore = $PWD/TDycore/demo/steadyblock/steadyblock
 pflotran = $PWD/pflotran/src/pflotran/pflotran' >$PWD/qa-toolbox/simulators.sim
 
 ##map tdycore test within config_files.txt
