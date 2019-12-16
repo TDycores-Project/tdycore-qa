@@ -73,6 +73,9 @@ cd ../../..
 git clone https://github.com/leorosie/TDycore-test.git
 #private repository
 
+ls -a
+echo "reg folder"
+
 #insert simulator paths into simulators.sim
 echo '[simulators]
 python = /usr/bin/python3
