@@ -5,7 +5,7 @@ before_script:
 
 sudo: required
 
-dist: Xenial # 18.04.x
+dist: Bionic # 18.04.x
 
 compiler:
   - gcc
@@ -31,6 +31,10 @@ addons:
 #  only:
 #    - master
 
+matrix:
+  include:
+    - env: CMAKE_BUILD=0 PETSC_MASTER=0 MINIMAL_BUILD=1
+      os: linux
 script: 
 #  - ./.travis/test-qa_framework.sh
    - ./.travis/tdycore.sh
