@@ -95,7 +95,7 @@ echo '../TDycore-test/2d_block/2d_block.cfg'>$PWD/qa-toolbox/config_files.txt
 
 
 cd tdycore-qa
-#git checkout rosie/learning-travis
+git checkout rosie/learning-travis
 ls -a
 
 make all
