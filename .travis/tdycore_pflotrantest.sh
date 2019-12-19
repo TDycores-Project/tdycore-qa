@@ -75,7 +75,7 @@ sudo apt-get -y install python3-tk python3-scipy
 
 echo "tdycore folder"
 
-cd ../../..
+#cd ../../..
 
 #clone my tdycore test
 git clone https://github.com/leorosie/TDycore-test.git
