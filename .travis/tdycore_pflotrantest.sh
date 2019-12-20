@@ -7,7 +7,7 @@ cd qa-toolbox
 #git checkout rosie/learning-travis   #test with this commented out
 cd ..
 
-#sudo apt-get install -y cmake gcc gfortran g++  #test with this commented out
+sudo apt-get install -y cmake gcc gfortran g++  #test with this commented out
 
 #install and make pflotran
 #petsc
