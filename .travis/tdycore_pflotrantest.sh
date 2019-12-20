@@ -1,7 +1,7 @@
 #!/bin/sh
 
 #clone tdycore-qa repository and qa-toolbox repository
-git clone https://github.com/TDycores-Project/tdycore-qa.git
+#git clone https://github.com/TDycores-Project/tdycore-qa.git
 git clone https://github.com/TDycores-Project/qa-toolbox.git
 cd qa-toolbox
 git checkout rosie/learning-travis
@@ -91,10 +91,11 @@ python = /usr/bin/python3
 pflotran =' $var'/pflotran/src/pflotran/pflotran' >$PWD/qa-toolbox/simulators.sim
 
 ##map tdycore test within config_files.txt
-echo '../TDycore-test/Kolditz_Tests/test.cfg'>$PWD/qa-toolbox/config_files.txt
+echo  $var'/TDycore-test/Kolditz_Tests/test.cfg'>$PWD/qa-toolbox/config_files.txt
 
 
-cd tdycore-qa
+#cd tdycore-qa
+cd ..
 git checkout rosie/learning-travis
 ls -a
 
