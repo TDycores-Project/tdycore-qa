@@ -1,13 +1,13 @@
 #!/bin/sh
 
 #clone tdycore-qa repository and qa-toolbox repository
-#git clone https://github.com/TDycores-Project/tdycore-qa.git
+git clone https://github.com/TDycores-Project/tdycore-qa.git
 git clone https://github.com/TDycores-Project/qa-toolbox.git
 cd qa-toolbox
-git checkout rosie/learning-travis
+#git checkout rosie/learning-travis   #test with this commented out
 cd ..
 
-sudo apt-get install -y cmake gcc gfortran g++
+#sudo apt-get install -y cmake gcc gfortran g++  #test with this commented out
 
 #install and make pflotran
 #petsc
@@ -94,8 +94,8 @@ pflotran =' $var'/pflotran/src/pflotran/pflotran' >$PWD/qa-toolbox/simulators.si
 echo  $var'/TDycore-test/Kolditz_Tests/test.cfg'>$PWD/qa-toolbox/config_files.txt
 
 
-#cd tdycore-qa
-cd ..
+cd tdycore-qa
+#cd ..
 git checkout rosie/learning-travis
 ls -a
 
