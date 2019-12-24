@@ -96,7 +96,7 @@ echo  $var'/TDycore-test/Kolditz_Tests/test.cfg'>$PWD/qa-toolbox/config_files.tx
 
 cd tdycore-qa
 #cd ..
-#git checkout rosie/learning-travis
+git checkout rosie/learning-travis
 ls -a
 
 make all
