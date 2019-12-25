@@ -91,7 +91,7 @@ python = /usr/bin/python3
 pflotran =' $var'/pflotran/src/pflotran/pflotran' >$PWD/qa-toolbox/simulators.sim
 
 ##map tdycore test within config_files.txt
-echo  $var'/TDycore-test/Kolditz_Tests/test.cfg'>$PWD/qa-toolbox/config_files.txt
+echo  '../Kolditz_Tests/test.cfg'>$PWD/qa-toolbox/config_files.txt
 
 
 cd tdycore-qa
