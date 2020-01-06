@@ -58,10 +58,7 @@ make pflotran
 cd ../../..
 
 
-sudo apt-get update
-sudo apt purge python2.7-minimal
-sudo apt-get -y install python3 python3-h5py python3-matplotlib
-sudo apt-get -y install python3-tk python3-scipy
+
 
 
 #instal tdycore
@@ -76,6 +73,11 @@ ls -a
 echo "tdycore folder"
 
 cd ../../..
+
+sudo apt-get update
+sudo apt purge python2.7-minimal
+sudo apt-get -y install python3 python3-h5py python3-matplotlib
+sudo apt-get -y install python3-tk python3-scipy
 
 #clone my tdycore test
 git clone https://github.com/leorosie/TDycore-test.git
@@ -103,3 +105,6 @@ git checkout rosie/learning-travis
 ls -a
 
 make all
+
+cd ../TDycore-test/2d_block
+ls -a
