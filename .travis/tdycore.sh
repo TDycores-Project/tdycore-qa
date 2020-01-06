@@ -79,6 +79,9 @@ cd ../../..
 
 #clone my tdycore test
 git clone https://github.com/leorosie/TDycore-test.git
+cd TDycore-test/2d_block
+python3 make_dataset.py
+cd ../..
 #private repository
 
 ls -a
