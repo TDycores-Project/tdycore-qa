@@ -4,7 +4,7 @@
 git clone https://github.com/TDycores-Project/tdycore-qa.git
 git clone https://github.com/TDycores-Project/qa-toolbox.git
 cd qa-toolbox
-git checkout rosie/learning-travis
+#git checkout rosie/learning-travis
 cd ..
 
 sudo apt-get install -y cmake gcc gfortran g++
