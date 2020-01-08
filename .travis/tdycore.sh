@@ -1,13 +1,13 @@
 #!/bin/sh
 
 #clone tdycore-qa repository and qa-toolbox repository
-git clone https://github.com/TDycores-Project/tdycore-qa.git
+#git clone https://github.com/TDycores-Project/tdycore-qa.git
 git clone https://github.com/TDycores-Project/qa-toolbox.git
-cd qa-toolbox
+#cd qa-toolbox
 #git checkout rosie/learning-travis
-cd ..
+#cd ..
 
-#sudo apt-get install -y cmake gcc gfortran g++
+sudo apt-get install -y cmake gcc gfortran g++
 
 #install and make pflotran
 #petsc
@@ -47,7 +47,7 @@ echo "end configuring"
 #export PETSC_ARCH=arch-osx-dbg ##how know this??
 
 #cd $PETSC_DIR
-ls -a
+#ls -a
 make all
 
 cd ..
@@ -68,7 +68,7 @@ git checkout glenn/example-block
 make
 cd demo/steadyblock
 make
-ls -a
+#ls -a
 
 echo "tdycore folder"
 
@@ -103,13 +103,13 @@ pflotran =' $var'/pflotran/src/pflotran/pflotran' >$PWD/qa-toolbox/simulators.si
 echo '../TDycore-test/2d_block/2d_block.cfg'>$PWD/qa-toolbox/config_files.txt
 
 
-cd tdycore-qa
-git checkout rosie/learning-travis
-ls -a
+#cd tdycore-qa
+#git checkout rosie/learning-travis
+#ls -a
 
 make all
 
-cd ../tdycore-qa/docs
-make clean
-make html
-ls
+#cd ../tdycore-qa/docs
+#make clean
+#make html
+#ls
