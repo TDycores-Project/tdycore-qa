@@ -64,7 +64,7 @@ cd ../../..
 #instal tdycore
 git clone https://github.com/TDycores-Project/TDycore.git
 cd TDycore
-git checkout glenn/example-block
+git checkout rosie/test-prefix-error
 make
 cd demo/steadyblock
 make
@@ -112,6 +112,7 @@ make all
 cd ../TDycore-test/2d_block
 
 ls -a
+cat wy_vs_tpf_tdycore_wy_run1_tdycore.stdout
 
 #cd ../tdycore-qa/docs
 #make clean
