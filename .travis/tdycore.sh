@@ -1,7 +1,7 @@
 #!/bin/sh
 
 #clone tdycore-qa repository and qa-toolbox repository
-#git clone https://github.com/TDycores-Project/tdycore-qa.git
+git clone https://github.com/TDycores-Project/tdycore-qa.git
 git clone https://github.com/TDycores-Project/qa-toolbox.git
 #cd qa-toolbox
 #git checkout rosie/learning-travis
@@ -103,11 +103,15 @@ pflotran =' $var'/pflotran/src/pflotran/pflotran' >$PWD/qa-toolbox/simulators.si
 echo '../TDycore-test/2d_block/2d_block.cfg'>$PWD/qa-toolbox/config_files.txt
 
 
-#cd tdycore-qa
-#git checkout rosie/learning-travis
+cd tdycore-qa
+git checkout rosie/learning-travis
 #ls -a
 
 make all
+
+cd ../TDycore-test/2d_block
+
+ls -a
 
 #cd ../tdycore-qa/docs
 #make clean
