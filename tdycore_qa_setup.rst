@@ -142,55 +142,55 @@ Adding Tests to Suite
    * plot_time_units: (Required) Units of time to be displayed on plot.
    * plot_dimension: (Required) Dimension of simulation. Options include: 1D, 2D, 3D. If plotting in @d or 3D only two simulators may be tested at a time.
    * plot_x_label: (Required) Label to be put on x axis of plot. If plotting both a time slice and an observation file, two values must be specified here separted by a comma and order must match order of plot_type.
-  * plot_y_label: (Required) Label to be put on y axis of plot. If plotting both a time slice and an observation file, two values must be specified here separted by a comma and order must match order of plot_type.
-  * plot_title: (Required) Title to be displayed on plot.
-  * variables: (Required) Variable to be plotted from the output files. Must match the simulator output format. Custom mapping of variables can be specified in optional section ``mapping_options``.
-  * plot_type: (Optional, default: time slice) Observation if plotting observation point, time slice if plotting time slice. If plotting both order must match plot_x_label and plot_y_label.
-  * plot_error: (Optional, default: False) True if plotting relative and absolute error, False if not. If True only two simulatos may be run at a time.
-  * print_error: (Optional, default: False) When set to True a .stat file will be created with list of error metrics.
-  * plot_to_screen: (Optional, default: False) When set to True images will pop up as python script is being run.
+   * plot_y_label: (Required) Label to be put on y axis of plot. If plotting both a time slice and an observation file, two values must be specified here separted by a comma and order must match order of plot_type.
+   * plot_title: (Required) Title to be displayed on plot.
+   * variables: (Required) Variable to be plotted from the output files. Must match the simulator output format. Custom mapping of variables can be specified in optional section ``mapping_options``.
+   * plot_type: (Optional, default: time slice) Observation if plotting observation point, time slice if plotting time slice. If plotting both order must match plot_x_label and plot_y_label.
+   * plot_error: (Optional, default: False) True if plotting relative and absolute error, False if not. If True only two simulatos may be run at a time.
+   * print_error: (Optional, default: False) When set to True a .stat file will be created with list of error metrics.
+   * plot_to_screen: (Optional, default: False) When set to True images will pop up as python script is being run.
 
-  Optional section ``swap_options`` defines values of variables in input decks to be tested. Each value will correspond to a different run number when outputting figures.
+   Optional section ``swap_options`` defines values of variables in input decks to be tested. Each value will correspond to a different run number when outputting figures.
 
-    ::
+   ::
 
-     [swap_options]
-     method = list
-     nx = 20, 40
-     ny = 30, 50
+    [swap_options]
+    method = list
+    nx = 20, 40
+    ny = 30, 50
 
 
-  * method: (default: list) Options: list, iterative.
+   * method: (default: list) Options: list, iterative.
      * List: Specifies list of values for different variables. All variables must have the same number of values. The length for each variable should be equal.
      * Iterative: Variables will be increased incrementally for an amount specified by max_attempts. A starting value and an increment should be specified sepearted by a comma. (For example: nx = 12,2 will start nx with a value of 12 and will multiple the value by 2 until max_attempts is reached.)
-  * max_attemps: (Required if iterative) Maximum number of iterations to take with iterative method.
+   * max_attemps: (Required if iterative) Maximum number of iterations to take with iterative method.
 
-    Variables names are listed based on what is defined in the input simulator files. When defining the variable within the input deck the following format must be used `swap{nx,10}`.
+   Variables names are listed based on what is defined in the input simulator files. When defining the variable within the input deck the following format must be used `swap{nx,10}`.
 
-    An example is shown in pflotran:
+   An example is shown in pflotran:
 
-    ::
+   ::
 
-     GRID
-       TYPE structured
-       NXYZ swap{nx,10} 1 1
-       BOUNDS
-         0.d0 0.d0 0.d0
-         100.d0 1.d0 1.d0
-       END
-     END
+    GRID
+      TYPE structured
+      NXYZ swap{nx,10} 1 1
+      BOUNDS
+        0.d0 0.d0 0.d0
+        100.d0 1.d0 1.d0
+      END
+    END
 
 
    
-    The optional section ``mapping_options`` can be used when trying to plot unconvential variables and when simulator output names do not match.
+   The optional section ``mapping_options`` can be used when trying to plot unconvential variables and when simulator output names do not match.
 
-    ::
+   ::
     
-     [mapping_options]
-     Free X1 [M] = X1
-     Free_X1 [M] = X1
+    [mapping_options]
+    Free X1 [M] = X1
+    Free_X1 [M] = X1
 
-    where ``Free X1 [M]`` is the variable name outputted by the simulator and ``X1`` is the variable listed under the variables key in ``output_options``. As many key and value pairs can be listed as needed.
+   where ``Free X1 [M]`` is the variable name outputted by the simulator and ``X1`` is the variable listed under the variables key in ``output_options``. As many key and value pairs can be listed as needed.
 
 4. Create the configuration file as a standard ``.cfg`` and specify the option file, input deck filenames, and simulators. The title variable is optional and will be displayed as the title for the test in the documentaiton.
 
@@ -288,33 +288,33 @@ To run tdycore_qa in the cloud set up travis-ci with the repository and create a
       
    b. Install PETSc and export PETSc variables
 
-     .. code-block:: bash
+      .. code-block:: bash
 
-       git clone https://gitlab.com/petsc/petsc petsc
-       PETSC_GIT_HASH=v3.11.3
-       DEBUG=1
-       cd petsc
-       git checkout ${PETSC_GIT_HASH}
-       export PETSC_DIR=$PWD
-       expot PETSC_ARCH=petsc-arch
-
-
-       ./configure PETSC_ARCH=petsc-arch \
-       --with-cc=gcc \
-       --with-cxx=g++ \
-       --with-fc=gfortran \
-       --CFLAGS='-g -O0' --CXXFLAGS='-g -O0' --FFLAGS='-g -O0 -Wno-unused-function' \
-       --with-clanguage=c \
-       --with-debug=$DEBUG  \
-       --with-shared-libraries=0 \
-       --download-hdf5 \
-       --download-metis \
-       --download-parmetis \
-       --download-fblaslapack \
-       --download-mpich=http://www.mpich.org/static/downloads/3.2/mpich-3.2.tar.gz
+        git clone https://gitlab.com/petsc/petsc petsc
+        PETSC_GIT_HASH=v3.11.3
+        DEBUG=1
+        cd petsc
+        git checkout ${PETSC_GIT_HASH}
+        export PETSC_DIR=$PWD
+        expot PETSC_ARCH=petsc-arch
 
 
-       make all
+        ./configure PETSC_ARCH=petsc-arch \
+        --with-cc=gcc \
+        --with-cxx=g++ \
+        --with-fc=gfortran \
+        --CFLAGS='-g -O0' --CXXFLAGS='-g -O0' --FFLAGS='-g -O0 -Wno-unused-function' \
+        --with-clanguage=c \
+        --with-debug=$DEBUG  \
+        --with-shared-libraries=0 \
+        --download-hdf5 \
+        --download-metis \
+        --download-parmetis \
+        --download-fblaslapack \
+        --download-mpich=http://www.mpich.org/static/downloads/3.2/mpich-3.2.tar.gz
+
+
+        make all
 
    c. Install Tdycore
 
@@ -377,4 +377,4 @@ To run tdycore_qa in the cloud set up travis-ci with the repository and create a
 	     packages:
 	       - cmake
 
-    d. Set script to run .sh file in /.travis
+   d. Set script to run .sh file in /.travis
