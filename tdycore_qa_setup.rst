@@ -99,9 +99,9 @@ Adding Tests to Suite
      $ mkdir my_test
      $ cd my_test
 
-2. Create two or more input files for the desired simulators you wish to test. Note: If working in 2D, 3D, or calculating error only two simulators may be run at a time. The input file has a file extension based on the simulator you to run, such as ``filename.pflotran, filename.python``. For example, you can browse the input decks within the qa-toolbox tests. The filename will be specified in the configuration file.
+2. Create two or more input files for the desired simulators you wish to test. The input file has a file extension based on the simulator you wish to run, such as ``filename.pflotran, filename.python``. The filename will be specified in the configuration file and must be the same for all simulators. For example, you can browse the input decks within the qa-toolbox tests. Note: If working in 2D, 3D, or calculating error only two simulators may be run at a time. 
 
-3. The QA toolbox reads in an options file specified by the user in a standard ``.opt`` extension. The options file consist of a series of sections with key-value pairs.
+3. The QA toolbox reads in an options file specified by the user in a standard ``.opt`` extension. The options file consists of a series of sections with key-value pairs.
 
    ::
 
@@ -140,7 +140,7 @@ Adding Tests to Suite
    * times: (Required for time slice) List of times to plot and compare solutions at. Must match the times of outputs created by simulators. Unit must come after time.
    * locations: (Required for observation point) List of locations (x y z) where specified observation point(s) is indicated in simulator file. Units in [m].
    * plot_time_units: (Required) Units of time to be displayed on plot.
-   * plot_dimension: (Required) Dimension of simulation. Options include: 1D, 2D, 3D. If plotting in @d or 3D only two simulators may be tested at a time.
+   * plot_dimension: (Required) Dimension of simulation. Options include: 1D, 2D, 3D. If plotting in 2D or 3D only two simulators may be tested at a time.
    * plot_x_label: (Required) Label to be put on x axis of plot. If plotting both a time slice and an observation file, two values must be specified here separted by a comma and order must match order of plot_type.
    * plot_y_label: (Required) Label to be put on y axis of plot. If plotting both a time slice and an observation file, two values must be specified here separted by a comma and order must match order of plot_type.
    * plot_title: (Required) Title to be displayed on plot.
@@ -161,8 +161,8 @@ Adding Tests to Suite
 
 
    * method: (default: list) Options: list, iterative.
-     * List: Specifies list of values for different variables. All variables must have the same number of values. The length for each variable should be equal.
-     * Iterative: Variables will be increased incrementally for an amount specified by max_attempts. A starting value and an increment should be specified sepearted by a comma. (For example: nx = 12,2 will start nx with a value of 12 and will multiple the value by 2 until max_attempts is reached.)
+      * List: Specifies list of values for different variables. All variables must have the same number of values. The length for each variable should be equal.
+      * Iterative: Variables will be increased incrementally for an amount specified by max_attempts. A starting value and an increment should be specified sepearted by a comma. (For example: nx = 12,2 will start nx with a value of 12 and will multiple the value by 2 until max_attempts is reached.)
    * max_attemps: (Required if iterative) Maximum number of iterations to take with iterative method.
 
    Variables names are listed based on what is defined in the input simulator files. When defining the variable within the input deck the following format must be used `swap{nx,10}`.
