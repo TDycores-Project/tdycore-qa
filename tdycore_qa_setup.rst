@@ -165,7 +165,7 @@ Adding Tests to Suite
       * Iterative: Variables will be increased incrementally for an amount specified by max_attempts. A starting value and an increment should be specified sepearted by a comma. (For example: nx = 12,2 will start nx with a value of 12 and will multiple the value by 2 until max_attempts is reached.)
    * max_attemps: (Required if iterative) Maximum number of iterations to take with iterative method.
 
-   Variables names are listed based on what is defined in the input simulator files. When defining the variable within the input deck the following format must be used `swap{nx,10}`.
+   Variables names are listed based on what is defined in the input decks. When defining the variable within the input deck the following format must be used `swap{nx,10}`.
 
    An example is shown in pflotran:
 
@@ -210,7 +210,7 @@ Adding Tests to Suite
     simulators = tdycore, pflotran
 
 
-   Where ``tpf_vs_pft.opt`` is the options file and input decks are named ``kolditz_2_2_10.pflotran`` and ``kolditz_2_2_10.python``.
+   Where ``tpf_vs_pft.opt`` is the options file and input decks are named ``tpf_vs_pft.pflotran`` and ``tpf_vs_pft.tdycore``.
 
    Available simulators the toolbox can run include:
 
@@ -225,11 +225,11 @@ Adding Tests to Suite
 Setup Qa-Toolbox
 ----------------
 
-1. Cd in qa-toolbox and set up simulator and config_files.
+1. Cd in qa-toolbox and set up simulators.sim and config_files.txt.
 
    a. Create a file called simulators.sim and set local paths to executables of the simulators. See `default_simulators.sim` as an example.
 
-   b. Create a file called `config_files.txt` and set the local path to the configuration file for the desired tests. See default_simulators.sim.
+   b. Create a file called `config_files.txt` and set the local path to the configuration file for the desired tests. See default_simulators.sim as an example.
 
 
 Setup Directory
@@ -263,14 +263,14 @@ Setup Directory
         $ cd ..
 	$ emacs makefile
 
-   b. In makefile set python, and directory to qa_toolbox
+   b. In makefile set python, and directory to qa_toolbox path.
 
       .. code-block:: bash
 
 	PYTHON = python3
 	QA_TOOLBOX_DIR = ../qa-toolbox
 
-   c. Run the qa_tests in the makefile by setting the directory and document directory.
+   c. Run the qa_tests in the makefile by setting the directory and documentation directory.
 
       .. code-block:: bash
 
@@ -318,9 +318,11 @@ To run tdycore_qa in the cloud set up travis-ci with the repository and create a
 
    c. Install Tdycore
 
-   d. Install PFLOTRAN   
+   d. Install PFLOTRAN
 
-   e. Move back to the home directory and purge python2.7 and install python3
+   e. Clone Tdycore test directory you created previously with the configuration file, options file, and input decks
+
+   f. Move back to the home directory and purge python2.7 and install python3
 
 
       .. code-block:: bash
@@ -331,22 +333,22 @@ To run tdycore_qa in the cloud set up travis-ci with the repository and create a
         sudo apt-get -y install python3 python3-h5py python3-matplotlib
         sudo apt-get -y install python3-tk python3-scipy
 
-   f. Create file called simulators.sim within qa-toolbox that sets paths to simulators
+   g. Create file called simulators.sim within qa-toolbox that sets paths to simulator executables
 
       .. code-block:: bash
 
         echo '[simulators]
-	tdycore =' $var'/TDycore/demo/steadyblock/steadyblock
+	tdycore =' $pwd'/TDycore/demo/steadyblock/steadyblock
 	pflotran =' $pwd'/pflotran/src/pflotran/pflotran' >$PWD/qa-toolbox/simulators.sim
 
 
-   g. Create file called config_files.txt within qa-toolbox that sets paths to simulators
+   h. Create file called config_files.txt within qa-toolbox that sets paths to the configuration file you wish to run
 
       .. code-block:: bash
 
 	echo '../TDycore-test/2d_block/2d_block.cfg'>$PWD/qa-toolbox/config_files.txt
 
-   h. Run the makefile in tdycore-qa
+   i. Run the makefile created earlier in tdycore-qa
 
       .. code-block:: bash
 
