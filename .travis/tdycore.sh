@@ -109,18 +109,18 @@ git checkout rosie/learning-travis
 
 make all
 
-cd ../TDycore-test/2d_block
+#cd ../TDycore-test/2d_block
 
-ls -a
+#ls -a
 #cat wy_vs_mpf_tdycore_wy_run1_tdycore.stdout
 #cat wy_vs_tpf_tdycore_wy_run1_tdycore.stdout
 #cat wy_vs_pft_tdycore_run1_tdycore.stdout
-cat tpf_vs_pft_tdycore_run1_tdycore.stdout
-cat wy_vs_mpf_tdycore_wy_run1_tdycore.stdout
-cat wy_vs_pft_tdycore_run1_tdycore.stdout
-cat wy_vs_tpf_tdycore_wy_run1_tdycore.stdout
+#cat tpf_vs_pft_tdycore_run1_tdycore.stdout
+#cat wy_vs_mpf_tdycore_wy_run1_tdycore.stdout
+#cat wy_vs_pft_tdycore_run1_tdycore.stdout
+#cat wy_vs_tpf_tdycore_wy_run1_tdycore.stdout
 
-#cd ../tdycore-qa/docs
-#make clean
-#make html
-#ls
+cd ../tdycore-qa/docs
+make clean
+make html
+ls
