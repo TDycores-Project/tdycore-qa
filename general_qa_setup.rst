@@ -9,7 +9,7 @@ Tests can be run to produce a time slice (all locations at one time) and/or an o
 Adding Tests to Suite
 ---------------------
 
-1. To create a new qa-test, create a new folder and cd into the folder.
+1. To create a new qa-test, create a new folder and cd into the folder. All tests placed in the same folder will be grouped together in the documentation. The title of the group will be the folder name. If underscores are used in the foldername they will be replaced with spaces in the documentation.
 
    .. code-block:: bash
 
@@ -109,7 +109,7 @@ Adding Tests to Suite
 
    where ``Free X1 [M]`` is the variable name outputted by the simulator and ``X1`` is the variable listed under the variables key in ``output_options``. As many key and value pairs can be listed as needed.
 
-4. Create the configuration file as a standard ``.cfg`` and specify the option file, input deck filenames, and simulators. The title variable is optional and will be displayed as the title for the test in the documentaiton.
+4. Create the configuration file as a standard ``.cfg`` and specify the option file, input deck filenames, and simulators. The title variable is optional and will be displayed as the title for the test in the documentaiton. If no title is specified the title will be the input field for template.
 
    ::
 
