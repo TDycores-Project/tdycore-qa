@@ -4,7 +4,7 @@ QA Repository Setup
 Running in Cloud
 ----------------
 
-To run the qa-repository in the cloud set up travis-ci with the repository and create a.travis.yml file and .sh file in .travis to the necessary simulators and run the qa-toolbox.
+To run the qa-repository in the cloud set up travis-ci with the repository and create a travis.yml file and .sh file in .travis to the necessary simulators and run the qa-toolbox.
 
 1. Write .sh script for travis to run
 
@@ -12,7 +12,7 @@ To run the qa-repository in the cloud set up travis-ci with the repository and c
       
    b. Install simulators
 
-   c. Clone qa-test directory you created previously with the configuration file, options file, and input decks
+   c. Clone the directory created for the test with the configuration file, options file, and input decks.
 
    d. Move back to the home directory and purge python2.7 and install python3
 
@@ -24,7 +24,7 @@ To run the qa-repository in the cloud set up travis-ci with the repository and c
         sudo apt-get -y install python3 python3-h5py python3-matplotlib
         sudo apt-get -y install python3-tk python3-scipy
 
-   e. Create file called simulators.sim within qa-toolbox that sets paths to simulator executables, for example
+   e. Create file called simulators.sim within qa-toolbox that sets paths to simulator executables, for example:
 
       .. code-block:: bash
 
@@ -39,7 +39,7 @@ To run the qa-repository in the cloud set up travis-ci with the repository and c
 
 	echo '../qa-test/test.cfg'>$PWD/qa-toolbox/config_files.txt
 
-   i. Run the makefile created earlier in tdycore-qa
+   i. Run the makefile created earlier in the qa-repository.
 
       .. code-block:: bash
 

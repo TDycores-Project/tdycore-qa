@@ -16,7 +16,7 @@ If running a Python simulator certain commands and steps should be added and fol
 
       from qa_common import *
 
-      from simulator_modules.solution import SolutionWriter
+      from qa_solution import QASolutionWriter
       from simulator_modules.python import *
 
 
@@ -57,12 +57,12 @@ If running a Python simulator certain commands and steps should be added and fol
 
       Acceptable values include:
 
-      * 'y','yr','yrs','year','years' = years
-      * 'mo','month' = month
-      * 'd','day' = day
-      * 'h','hr','hour' = hour
-      * 'm','min','minute' = minute
-      * 's','sec','second' = second
+      * 'y', 'yr', 'yrs', 'year', 'years' = years
+      * 'mo', 'month' = month
+      * 'd', 'day' = day
+      * 'h', 'hr', 'hour' = hour
+      * 'm', 'min', 'minute' = minute
+      * 's', 'sec', 'second' = second
 	
 
    b. Make a SolutionWriter object which the test suite will use to convert the solution to h5 format.
@@ -70,7 +70,7 @@ If running a Python simulator certain commands and steps should be added and fol
       .. code-block:: python
 
 	 solution_filename = get_python_solution_filename(filename)
-	 solution = SolutionWriter(solution_filename, time_unit)
+	 solution = QASolutionWriter(solution_filename, time_unit)
 
       The time_unit variable is an optional input paramater into SolutionWriter, as mentioned above if time units are in years this is not needed.
       
@@ -107,7 +107,7 @@ If running a Python simulator certain commands and steps should be added and fol
       .. code-block:: python
 
 	#solution.write_dataset(coordinates,solution,variable_string,'Observation')	      
-	solution.write_dataset(np.concatenate((x_observation,y_observation,z_observation)),p_soln,'Liquid_Pressure','Observation')
+	solution.write_dataset(np.concatenate((x_observation,y_observation,z_observation)),p_soln,'Liquid Pressure','Observation')
 
       Coordinates must be in 3D (x,y,z), solution can be in 1D, 2D, or 3D, and variable_string matches what was inputted into the `variables` key in the options file.
 
@@ -121,7 +121,7 @@ If running a Python simulator certain commands and steps should be added and fol
       .. code-block:: python
 
 	 #solution.write_dataset(time,solution,variable_string)	      
-	 solution.write_dataset(t_soln[time],p_soln[time,:],'Liquid_Pressure')
+	 solution.write_dataset(t_soln[time],p_soln[time,:],'Liquid Pressure')
 
 
       Time is the time the solution is for and is 1D, the solution is a numpy array that can be 1D, 2D, or 3D, and variable_string matches what was inputted into the `variables` key in the options file.
@@ -149,7 +149,7 @@ If running a Python simulator certain commands and steps should be added and fol
 
       from qa_common import *
 
-      from simulator_modules.solution import SolutionWriter
+      from qa_solution import QASolutionWriter
       from simulator_modules.python import *
 
       filename = __file__
@@ -180,7 +180,7 @@ If running a Python simulator certain commands and steps should be added and fol
     
 
 	solution_filename = get_python_solution_filename(filename)
-	solution = SolutionWriter(solution_filename,time_unit)
+	solution = QASolutionWriter(solution_filename,time_unit)
 
 	#THIS IS AN OBSERVATION POINT EXAMPLE#
         ###########################################################
@@ -200,7 +200,7 @@ If running a Python simulator certain commands and steps should be added and fol
 	    p_soln[time] = ((0.50 + sum_term) + p_offset)*1.0e6
 
 	#solution.write_dataset((x,y,z),solution,variable_string,'Observation')
-	solution.write_dataset(np.concatenate((x_observation,y_observation,z_observation)),p_soln,'Liquid_Pressure','Observation')
+	solution.write_dataset(np.concatenate((x_observation,y_observation,z_observation)),p_soln,'Liquid Pressure','Observation')
         #######################################################
 
         #TIME SLICE EXAMPLE#
@@ -228,7 +228,7 @@ If running a Python simulator certain commands and steps should be added and fol
 	    p_soln[time,:] = ((0.50 + sum_term) + p_offset)*1.0e6
 	    
             #solution.write_dataset(time,solution,variable_string)
-	    solution.write_dataset(t_soln[time],p_soln[time,:],'Liquid_Pressure')
+	    solution.write_dataset(t_soln[time],p_soln[time,:],'Liquid Pressure')
 	    ######################################################
 
 	solution.destroy()
