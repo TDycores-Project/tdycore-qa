@@ -48,11 +48,11 @@ Running the Test Suite
      $ cd ..
      $ make
 
-   The optional parameter doc_dir can be set when running the makefile to indicate the location of the documentation directory. If doc_dir is not set the qa-toolbox will automatically assume the documentation directory is qa-toolbox/docs.
+   The optional parameter DOC_DIR can be set when running the makefile to indicate the location of the documentation directory. If DOC_DIR is not set the qa-toolbox will automatically assume the documentation directory is qa-toolbox/docs.
 
    .. code-block:: bash
 
-     $ make doc_dir=Users/username/Documents/documentation_folder
+     $ make DOC_DIR=Users/username/Documents/documentation_folder
 
 3. As the simulation is running, output files, saved figure results, and documentation files will be generated. They will be located in the same location as your input files.
 
