@@ -10,7 +10,7 @@ run_tests :
 	@echo run_tests
 	@if [ -d $(QA_TOOLBOX_DIR) ]; then \
 		echo Executing QA Framework Makefile; \
-		$(MAKE) --directory=$(QA_TOOLBOX_DIR) DOC_DIR=${PWD}/docs all; \
+		$(MAKE) --directory=$(QA_TOOLBOX_DIR) DOC_DIR=${PWD}/docs/source all; \
 		echo QA Framework Makefile done; \
 	else \
 		echo Directory $(QA_TOOLBOX_DIR) not found; \
