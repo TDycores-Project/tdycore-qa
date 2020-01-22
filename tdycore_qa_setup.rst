@@ -1,11 +1,7 @@
 Tdycore-QA Repository Setup
 ===========================
 
-The Tdycore-qa works with the qa-toolbox to generate restructured text files for html documentation of error metrics between various simulator runs. The qa-toolbox will run the comparison test and files will be generated within tdycore-qa.
-
-
-
-
+The Tdycore-qa works with the qa-toolbox to generate  documentation of error metrics between various simulators. The qa-toolbox will run the comparison test and restructured text files for html files will be generated within the tdycore-qa repository.
 
 Each test for the qa-toolbox consists of input decks for simulators, a configuration file, and an options file.
 
@@ -15,12 +11,29 @@ Install Software
 ----------------
 The following software needs to be installed in order to run tdycore-qa:
 
+* tdycore-qa
+* qa-toolbox
 * PETSc
 * PFLOTRAN
 * TDycore
 * Sphinx
 
-1. Install PETSc
+1. Clone tdycore-qa and checkout branch rosie/fix-makefile
+
+   .. code-block:: bash
+
+     $ git clone https://github.com/TDycores-Project/tdycore-qa.git
+     $ cd tdycore-qa
+     $ git checkout rosie/fix-makefile
+     $ cd ..
+     
+2. Clone qa-toolbox outside of tdycore-qa
+
+   .. code-block:: bash
+
+     $ git clone  https://github.com/TDycores-Project/qa-toolbox.git
+
+3. Install PETSc
 
    a. Clone PETSc and check out supoorted version
 
@@ -50,7 +63,7 @@ The following software needs to be installed in order to run tdycore-qa:
 	$ cd $PETSC_DIR
 	$ make all
 
-2. Install PFLOTRAN
+4. Install PFLOTRAN
 
    a. Clone PFLOTRAN
 
@@ -65,7 +78,7 @@ The following software needs to be installed in order to run tdycore-qa:
         $ cd pflotran/src/pflotran
 	$ make pflotran
 
-3. Install TDycore
+5. Install TDycore
 
    a. Clone TDycore
 
@@ -88,17 +101,20 @@ The following software needs to be installed in order to run tdycore-qa:
 	$ cd demo/steadyblock
 	$ make
 
+6. Install Sphinx
    		   
-4. Clone qa-toolbox
 
-   .. code-block:: bash
 
-     $ git clone  https://github.com/TDycores-Project/qa-toolbox.git
+Adding Tests to Run With Tdycore-qa
+-----------------------------------
 
-Adding Tests to Suite
----------------------
+An example Tdycore-test can be seen and cloned at https://github.com/leorosie/TDycore-test/tree/master/2d_block
 
-1. To create a new tdycore-qa test, create a new folder and cd into the folder.
+If using the 2d_block example make sure to run make_dataset.py by ``python3 make_dataset.py``
+
+When making a new test follow instructions below:
+
+1. To create a new test to run with tdycore-qa, create a new folder and cd into the folder.
 
    .. code-block:: bash
 
@@ -238,49 +254,26 @@ Setup Qa-Toolbox
    b. Create a file called `config_files.txt` and set the local path to the configuration file for the desired tests. See default_simulators.sim as an example.
 
 
-Setup Directory
----------------
+Setup Tdycore-qa and Run Tests
+------------------------------
 
-1. Make a new folder for the QA repository
+1. Cd into tdycore-qa, open up the makefile and set the correct location to where the qa-toolbox was cloned under the variable ``QA_TOOLBOX_DIR``
 
-   .. code-block:: bash
-
-     $ mkdir tdycore-qa
-
-2. Cd into the qa repository and create a documentation directory
+2. Run the Makefile to run the tests using qa-toolbox
 
    .. code-block:: bash
 
-     $ cd tdycore-qa
-     $ mkdir docs
+     $ make
 
-3. Setup sphinx in documentation directory and follow setup instructions.
+   You should see scrolling output produced by the qa-toolbox.
+
+3. When the tests have finished running cd into the docs folder and create the html files.
 
    .. code-block:: bash
 
-     $ sphinx-quickstart
-
-4. Setup makefile
-
-   a. Cd out of documentation folder and open up new makefile in main directory
-
-      .. code-block:: bash
-
-        $ cd ..
-	$ emacs makefile
-
-   b. In makefile set python, and directory to qa_toolbox path.
-
-      .. code-block:: bash
-
-	PYTHON = python3
-	QA_TOOLBOX_DIR = ../qa-toolbox
-
-   c. Run the qa_tests in the makefile by setting the directory and documentation directory.
-
-      .. code-block:: bash
-
-	$(MAKE) --directory=$(QA_TOOLBOX_DIR) DOC_DIR=${PWD}
+     $ cd docs
+     $ make clean
+     $ make html
 
 
 Running tdycore-qa in Cloud
