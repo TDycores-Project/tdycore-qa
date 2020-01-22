@@ -1,5 +1,11 @@
-QA Repository Setup
-===================
+Tdycore-QA Repository Setup
+===========================
+
+The Tdycore-qa works with the qa-toolbox to generate restructured text files for html documentation of error metrics between various simulator runs. The qa-toolbox will run the comparison test and files will be generated within tdycore-qa.
+
+
+
+
 
 Each test for the qa-toolbox consists of input decks for simulators, a configuration file, and an options file.
 
