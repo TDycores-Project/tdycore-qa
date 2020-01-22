@@ -1,7 +1,7 @@
 Tdycore-QA Repository Setup
 ===========================
 
-The Tdycore-qa works with the qa-toolbox to generate  documentation of error metrics between various simulators. The qa-toolbox will run the comparison test and restructured text files for html files will be generated within the tdycore-qa repository.
+The tdycore-qa works with the qa-toolbox to generate  documentation and error metrics on a tdycore test. The qa-toolbox will create plots and restructured text files for html files within the tdycore-qa repository.
 
 Each test for the qa-toolbox consists of input decks for simulators, a configuration file, and an options file.
 
@@ -108,9 +108,9 @@ The following software needs to be installed in order to run tdycore-qa:
 Adding Tests to Run With Tdycore-qa
 -----------------------------------
 
-An example Tdycore-test can be seen and cloned at https://github.com/leorosie/TDycore-test/tree/master/2d_block
+An example tdycore-test can be seen and cloned at https://github.com/leorosie/TDycore-test/tree/master/2d_block
 
-If using the 2d_block example make sure to run make_dataset.py by ``python3 make_dataset.py``
+If using the 2d_block example make sure to run make_dataset.py: ``python3 make_dataset.py``
 
 When making a new test follow instructions below:
 
@@ -121,7 +121,7 @@ When making a new test follow instructions below:
      $ mkdir my_test
      $ cd my_test
 
-2. Create two or more input files for the desired simulators you wish to test. The input file has a file extension based on the simulator you wish to run, such as ``filename.pflotran, filename.python``. The filename will be specified in the configuration file and must be the same for all simulators. For example, you can browse the input decks within the qa-toolbox tests. Note: If working in 2D, 3D, or calculating error only two simulators may be run at a time. 
+2. Create two or more input files for the desired simulators you wish to test. The input file has a file extension based on the simulator you wish to run, such as ``filename.pflotran, filename.tdycore``. The filename will be specified in the configuration file and must be the same for all simulators. For example, you can browse the input decks within the qa-toolbox tests. Note: If working in 2D, 3D, or calculating error only two simulators may be run at a time. 
 
 3. The QA toolbox reads in an options file specified by the user in a standard ``.opt`` extension. The options file consists of a series of sections with key-value pairs.
 
@@ -247,11 +247,11 @@ When making a new test follow instructions below:
 Setup Qa-Toolbox
 ----------------
 
-1. Cd in qa-toolbox and set up simulators.sim and config_files.txt.
+1. Cd into qa-toolbox and set up simulators.sim and config_files.txt.
 
-   a. Create a file called simulators.sim and set local paths to executables of the simulators. See `default_simulators.sim` as an example.
+   a. Create a file called simulators.sim and set local paths to executables of the simulators. See ``default_simulators.sim`` as an example.
 
-   b. Create a file called `config_files.txt` and set the local path to the configuration file for the desired tests. See default_simulators.sim as an example.
+   b. Create a file called ``config_files.txt`` and set the local path to the configuration file for the desired tests (``.cfg`` file). See default_simulators.sim as an example.
 
 
 Setup Tdycore-qa and Run Tests
@@ -267,7 +267,7 @@ Setup Tdycore-qa and Run Tests
 
    You should see scrolling output produced by the qa-toolbox.
 
-3. When the tests have finished running cd into the docs folder and create the html files.
+3. When the tests have finished running, cd into the docs folder and create the html files.
 
    .. code-block:: bash
 
