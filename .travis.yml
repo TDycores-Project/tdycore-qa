@@ -32,7 +32,7 @@ matrix:
       os: linux
 script: 
 #  - ./.travis/test-qa_framework.sh
-   - ./.travis/tdycore.sh
+   - ./.travis/tdycore_v2.sh
 #   - ./.travis/tdycore_pflotrantest.sh
 
 #after_success:
