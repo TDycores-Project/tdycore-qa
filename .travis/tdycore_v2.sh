@@ -93,7 +93,7 @@ which python
 
 make all
 
-cd tdycore-qa/docs
+cd docs
 make clean
 make html
 ls
