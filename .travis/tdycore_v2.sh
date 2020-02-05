@@ -8,43 +8,44 @@ sudo apt-get install -y cmake gcc gfortran g++
 
 #install and make pflotran
 #petsc
-git clone https://gitlab.com/petsc/petsc petsc
 
-PETSC_GIT_HASH=v3.11.3
-DEBUG=1
+#git clone https://gitlab.com/petsc/petsc petsc
 
-cd petsc
-git checkout ${PETSC_GIT_HASH}
+#PETSC_GIT_HASH=v3.11.3
+#DEBUG=1
 
-export PETSC_DIR=$PWD
-echo "start configuring"
-./configure PETSC_ARCH=petsc-arch \
---with-cc=gcc \
---with-cxx=g++ \
---with-fc=gfortran \
---CFLAGS='-g -O0' --CXXFLAGS='-g -O0' --FFLAGS='-g -O0 -Wno-unused-function' \
---with-clanguage=c \
---with-debug=$DEBUG  \
---with-shared-libraries=0 \
---download-hdf5 \
---download-metis \
---download-parmetis \
---download-fblaslapack \
---download-mpich=http://www.mpich.org/static/downloads/3.2/mpich-3.2.tar.gz
+#cd petsc
+#git checkout ${PETSC_GIT_HASH}
+
+#export PETSC_DIR=$PWD
+#echo "start configuring"
+#./configure PETSC_ARCH=petsc-arch \
+#--with-cc=gcc \
+#--with-cxx=g++ \
+#--with-fc=gfortran \
+#--CFLAGS='-g -O0' --CXXFLAGS='-g -O0' --FFLAGS='-g -O0 -Wno-unused-function' \
+#--with-clanguage=c \
+#--with-debug=$DEBUG  \
+#--with-shared-libraries=0 \
+#--download-hdf5 \
+#--download-metis \
+#--download-parmetis \
+#--download-fblaslapack \
+#--download-mpich=http://www.mpich.org/static/downloads/3.2/mpich-3.2.tar.gz
 
 
 echo "end configuring"
-#--CFLAGS='-O3' --CXXFLAGS='-O3' --FFLAGS='-O3' --with-debugging=no --download-mpich=yes --download-hdf5=yes --download-fblaslapack=yes --download-metis=yes --download-parmetis=yes
+##--CFLAGS='-O3' --CXXFLAGS='-O3' --FFLAGS='-O3' --with-debugging=no --download-mpich=yes --download-hdf5=yes --download-fblaslapack=yes --download-metis=yes --download-parmetis=yes
 
 
-#export PETSC_DIR=$PWD
-#export PETSC_ARCH=arch-osx-dbg ##how know this??
+##export PETSC_DIR=$PWD
+##export PETSC_ARCH=arch-osx-dbg ##how know this??
 
 #cd $PETSC_DIR
-ls -a
-make all
+#ls -a
+#make all
 
-cd ..
+#cd ..
 git clone https://bitbucket.org/pflotran/pflotran
 cd pflotran/src/pflotran
 make pflotran
