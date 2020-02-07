@@ -29,7 +29,8 @@ addons:
 services:
   - docker
 
-before_install:
+before_install: 
+  - docker pull jedbrown/petsc
   - docker build -t jedbrown/petsc .
   
   
