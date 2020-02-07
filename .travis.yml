@@ -31,7 +31,8 @@ services:
 
 before_install: 
   - docker pull jedbrown/petsc
-  - docker build -t jedbrown/petsc .
+  - docker run -d -it jedbrown/petsc /bin/bash
+  - docker ps -a
   
   
 matrix:
