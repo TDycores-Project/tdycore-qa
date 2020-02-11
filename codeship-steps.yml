@@ -1,0 +1,6 @@
+# codeship-steps.yml
+
+- name: install pflotran, install tdycore, run qa tests, and build documentation
+  tag: master
+  service: app
+  command: ./build.sh

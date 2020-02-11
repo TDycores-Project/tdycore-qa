@@ -1,0 +1,6 @@
+#codeship-services.yml
+
+app:
+  build:
+    image: codeship/tdycore-qa
+    dockerfile: Dockerfile
