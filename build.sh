@@ -51,11 +51,11 @@ make
 
 cd ../../..
 
-sudo apt-get update
-sudo apt purge python2.7-minimal
-sudo apt-get -y install python3 python3-h5py python3-matplotlib
-sudo apt-get -y install python3-tk python3-scipy
-sudo apt-get install python3-sphinx
+#sudo apt-get update
+#sudo apt purge python2.7-minimal
+#sudo apt-get -y install python3 python3-h5py python3-matplotlib
+#sudo apt-get -y install python3-tk python3-scipy
+#sudo apt-get install python3-sphinx
 
 #install repository
 git clone https://github.com/leorosie/TDycore-test.git
