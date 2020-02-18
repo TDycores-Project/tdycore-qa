@@ -36,7 +36,7 @@ make all
 cd ..
 git clone https://bitbucket.org/pflotran/pflotran
 cd pflotran/src/pflotran
-make pflotran
+make -j4 pflotran
 
 cd ../../..
 
