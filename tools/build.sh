@@ -78,3 +78,6 @@ make all
 cd docs
 make clean
 make html
+
+cd _build/html
+tar -czvf /tmp/tdycore.tar.gz *

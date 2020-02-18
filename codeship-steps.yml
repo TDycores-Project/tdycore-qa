@@ -3,3 +3,7 @@
 - name: install pflotran, install tdycore, run qa tests, and build documentation
   service: app
   command: ./build.sh
+
+- name: scp to server
+  service: app
+  command: ./deploy.sh
