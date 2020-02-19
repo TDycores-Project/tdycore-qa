@@ -59,7 +59,7 @@ cd ../../..
 
 #install repository
 git clone https://github.com/leorosie/TDycore-test.git
-cd TDycore-test/Steady-State, 2D Saturated Flow With Linear Pressure Gradients BCs and Non-Uniform Block Permeability
+cd TDycore-test/Steady-State, 2D Saturated Flow With Linear Pressure Gradient BCs and Non-Uniform Block Permeability
 python3 make_dataset.py
 cd ../..
 
@@ -71,7 +71,7 @@ tdycore =' $var'/TDycore/demo/steadyblock/steadyblock
 pflotran =' $var'/pflotran/src/pflotran/pflotran' >$PWD/qa-toolbox/simulators.sim
 
 ##map tdycore test within config_files.txt
-echo '../TDycore-test/Steady-State, 2D Saturated Flow With Linear Pressure Gradients BCs and Non-Uniform Block Permeability/2d_block.cfg'>$PWD/qa-toolbox/config_files.txt
+echo '../TDycore-test/Steady-State, 2D Saturated Flow With Linear Pressure Gradient BCs and Non-Uniform Block Permeability/2d_block.cfg'>$PWD/qa-toolbox/config_files.txt
 
 make all
 
