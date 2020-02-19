@@ -59,7 +59,7 @@ cd ../../..
 
 #install repository
 git clone https://github.com/leorosie/TDycore-test.git
-cd TDycore-test/Steady-State, 2D Saturated Flow With Linear Pressure Gradient BCs and Non-Uniform Block Permeability
+cd TDycore-test/Steady-State\,\ 2D\ Saturated\ Flow\ With\ Linear\ Pressure\ Gradient\ BCs\ and\ Non-Uniform\ Block\ Permeability/
 python3 make_dataset.py
 cd ../..
 
