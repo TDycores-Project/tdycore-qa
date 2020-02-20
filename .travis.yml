@@ -31,9 +31,7 @@ matrix:
     - env: CMAKE_BUILD=0 PETSC_MASTER=0 MINIMAL_BUILD=1
       os: linux
 script: 
-#  - ./.travis/test-qa_framework.sh
    - ./.travis/tdycore_v2.sh
-#   - ./.travis/tdycore_pflotrantest.sh
 
 #after_success:
 #  - bash <(curl -s https://codecov.io/bash)
