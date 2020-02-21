@@ -2,7 +2,8 @@
 
 PYTHON = python3
 
-QA_TOOLBOX_DIR = ../qa-toolbox
+QA_TOOLBOX_DIR = qa-toolbox
+
 
 all : run_tests build_documentation
 
