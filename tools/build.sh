@@ -71,7 +71,7 @@ tdycore =' $var'/TDycore/demo/steadyblock/steadyblock
 pflotran =' $var'/pflotran/src/pflotran/pflotran' >$PWD/qa-toolbox/simulators.sim
 
 ##map tdycore test within config_files.txt
-echo '../TDycore-test/2d_block/2d_block.cfg'>$PWD/qa-toolbox/config_files.txt
+echo '../tdycore-qa-tests/2d_block/2d_block.cfg'>$PWD/qa-toolbox/config_files.txt
 
 make all
 
