@@ -58,8 +58,8 @@ cd ../../..
 #sudo apt-get install python3-sphinx
 
 #install repository
-git clone https://github.com/leorosie/TDycore-test.git
-cd TDycore-test/2d_block/
+git clone https://github.com/TDycores-Project/tdycore-qa-tests.git
+cd tdycore-qa-tests/2d_block/
 python3 make_dataset.py
 cd ../..
 
