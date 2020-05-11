@@ -92,14 +92,14 @@ The following software needs to be installed in order to run tdycore-qa:
 Adding Tests to Suite
 ---------------------
 
-1. To create a new tdycore-qa test, create a new folder and cd into the folder.
+1. To create a new test, create a new folder and cd into the folder. All tests placed in the same folder will be grouped together in the documentation. The default title of the group will be the folder name. This can be overwritten in the configuration file (see Step 4 below). If underscores are used in the folder name they will be replaced with spaces in the title for the documentation.
 
    .. code-block:: bash
 
      $ mkdir my_test
      $ cd my_test
 
-2. Create two or more input files for the desired simulators you wish to test. The input file has a file extension based on the simulator you wish to run, such as ``filename.pflotran, filename.python``. The filename will be specified in the configuration file and must be the same for all simulators. For example, you can browse the input decks within the qa-toolbox tests. Note: If working in 2D, 3D, or calculating error only two simulators may be run at a time. 
+2. Create two or more input files for the desired simulators you wish to test. The input file has a file extension based on the simulator you wish to run, such as ``filename.pflotran, filename.tdycore``. The filename will be specified in the configuration file and must be the same for all simulators. For example, you can browse the input decks within the qa-toolbox tests. Note: If working in 2D, 3D, or calculating error only two simulators may be run at a time. 
 
 3. The QA toolbox reads in an options file specified by the user in a standard ``.opt`` extension. The options file consists of a series of sections with key-value pairs.
 
@@ -137,9 +137,9 @@ Adding Tests to Suite
     print_error = True
 
 
-   * times: (Required for time slice) List of times to plot and compare solutions at. Must match the times of outputs created by simulators. Unit must come after time.
+   * times: (Required for time slice) List of times to plot and compare solutions at. Must match the times of outputs created by simulators. Must specify units on last time or all times listed. If running a steady state problem use time: '-999' (No unit required for steady state).
    * locations: (Required for observation point) List of locations (x y z) where specified observation point(s) is indicated in simulator file. Units in [m].
-   * plot_time_units: (Required) Units of time to be displayed on plot.
+   * plot_time_units: (Required) Units of time to be displayed on plot. (If steady state this variable will be ignored).
    * plot_dimension: (Required) Dimension of simulation. Options include: 1D, 2D, 3D. If plotting in 2D or 3D only two simulators may be tested at a time.
    * plot_x_label: (Required) Label to be put on x axis of plot. If plotting both a time slice and an observation file, two values must be specified here separted by a comma and order must match order of plot_type.
    * plot_y_label: (Required) Label to be put on y axis of plot. If plotting both a time slice and an observation file, two values must be specified here separted by a comma and order must match order of plot_type.
@@ -192,11 +192,12 @@ Adding Tests to Suite
 
    where ``Free X1 [M]`` is the variable name outputted by the simulator and ``X1`` is the variable listed under the variables key in ``output_options``. As many key and value pairs can be listed as needed.
 
-4. Create the configuration file as a standard ``.cfg`` and specify the option file, input deck filenames, and simulators. The title variable is optional and will be displayed as the title for the test in the documentaiton.
+4. Create the configuration file as a standard ``.cfg`` and specify the option file, input deck filenames, and simulators. The title variable is optional and will be displayed as the title for the test in the documentaiton. If no title is specified the title will be the input field for template.
 
    ::
 
     [OPTIONSFILENAME]
+    title = Test
     template = filename
     simulators = pflotran, tdycore
 
@@ -205,7 +206,7 @@ Adding Tests to Suite
    ::
 
     [tpf_vs_pft]
-    title = Tdycore Test
+    title = Tdycore Two-Point Flux Test
     template = tpf_vs_pft
     simulators = tdycore, pflotran
 
@@ -220,7 +221,12 @@ Adding Tests to Suite
    * crunchflow
    * tough3
 
+   If running multiple tests in the same folder, the title for the collection of tests can be set (default is name of folder tests are located in) with an optional info section in the configuration file:
 
+   ::
+
+    [info]
+    title = Tdycore Tests
       
 Setup Qa-Toolbox
 ----------------
@@ -229,7 +235,7 @@ Setup Qa-Toolbox
 
    a. Create a file called simulators.sim and set local paths to executables of the simulators. See `default_simulators.sim` as an example.
 
-   b. Create a file called `config_files.txt` and set the local path to the configuration file for the desired tests. See default_simulators.sim as an example.
+   b. Create a file called `config_files.txt` and set the local path to the configuration file for the desired tests. See `config_files.txt` as an example.
 
 
 Setup Directory
@@ -275,6 +281,7 @@ Setup Directory
       .. code-block:: bash
 
 	$(MAKE) --directory=$(QA_TOOLBOX_DIR) DOC_DIR=${PWD}
+
 
 
 Running tdycore-qa in Cloud
