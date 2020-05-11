@@ -14,7 +14,7 @@ Running and Documenting Tests
 
    .. code-block:: bash
 
-     $ git clone  https://github.com/TDycores-Project/qa-toolbox.git
+     $ git clone https://github.com/TDycores-Project/qa-toolbox.git
 
 2. Clone The Tdycore-qa-tests repository from Github. This repository contains input decks, the configuration file, and options file which will be used by the qa-toolbox.
 
